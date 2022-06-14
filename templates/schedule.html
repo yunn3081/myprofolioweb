@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Club Course</title>
+        <link rel="stylesheet" href="/static/css/schedule.css">
+    </head>
+    <body>
+        <h1>社團課程時間表</h1>
+        <form>
+            <label for="bday" class="txtt">選擇開始日期:</label>
+            <input type="date" id="bday" name="bday">
+            <input type="button" id="submitBtn" value="確認" class="shape-ex1" >
+        </form>
+        <br/>
+        <br/>
+        <table id="courseTable"></table>
+        <div id="calendar"></div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/static/js/schedule_topic.js"></script>
+        <script src="/static/js/schedule.js"></script>        
+    </body>
+</html>

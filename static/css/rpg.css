@@ -1,0 +1,19 @@
+body{
+    text-align: center;
+    background-color:#FDF6EC
+    }
+h1{
+    text-align: center;
+    color:#3F4853;
+}
+canvas{
+    border: 2px solid #DAB88B;
+    background-image: url(images/grasses68.gif);
+}
+
+#talkBox{
+    height: 18px;
+    color: #3F4853;
+    font-size: 26px;
+    font-weight: bold;
+}

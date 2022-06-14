@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+    background-color:#FDF6EC
+}
+
+h1{
+    text-align: center;
+    color:#3F4853;
+}
+
+svg{
+    border: 1px solid #DAB88B;
+}
+.axis .domain{
+    stroke:none;
+}
+.x line{
+    stroke: #F6EFDC;
+}
+
+.axis .tick line{
+    stroke: #bbb;
+    stroke-width: 0.5;
+    stroke-dasharray: 4,2;
+}
+
+/* interactive 詳細資訊視窗設定 */
+.tooltip{
+    position: fixed;
+    opacity: 0;
+    pointer-events: none; /*避免出現連結或其他預設行為*/
+    }
