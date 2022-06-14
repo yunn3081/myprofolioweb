@@ -3,15 +3,16 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="/static/css/schedule.css">
     </head>
     <body>
-        <h1></h1>
-        <div id="app">
+        <h1>簡歷摘要與起薪計算</h1>
+        <div id="app" class="txtt">
             姓名 : <input type="text" v-model="name"><br><br>
             <input type="radio" v-model="graduationIndex" value="0"><label for="bachelor">大學</label>
             <input type="radio" v-model="graduationIndex" value="1"><label for="master">碩士</label>
             <input type="radio" v-model="graduationIndex" value="2"><label for="phd">博士</label>
-            <p>其他資訊</p>
+            <h3>其他資訊</h3>
             <input type="checkbox" v-model="club_experience"> 參加社團 : {{club_experience}}<br>
             <input type="checkbox" v-model="work_experience" true-value="有" false-value="無" @change="reset_work_experience">
             工作經驗 : {{work_experience}}
@@ -21,10 +22,11 @@
                 </option>
             </select>
             <br><br>
-            <button @click="displaySummary">摘要</button> {{summary}}
+            <button @click="displaySummary" class="shape-ex1">摘要</button>{{summary}}
             <br><br>
-            <button @click="calculate">起薪計算</button>
-            <span v-show="showResult"> NT${{result_realtime.toLocaleString('zh-TW')}}</span>
+            <button @click="calculate"  class="shape-ex2">起薪計算</button>
+            <span v-show="showResult" style="color:#3F4853"> NT${{result_realtime.toLocaleString('zh-TW')}}</span>
+            <!-- <button @click="displaySummary" class="shape-ex1">總結</button> {{displayresult}} -->
         </div>
         <script src="//unpkg.com/vue@next"></script>
         <script src="/static/js/salary.js"></script>

@@ -19,12 +19,14 @@ let pageData = {
 
 let pageMethods = {
     displaySummary(){
-    this.summary = `${this.name} : ${this.graduationList[this.graduationIndex]}
-    畢業, 社團經驗:${this.club_experience}, ${this.work_experience}工作經驗${this.statusList[this.selectedIndex]}`;
+    this.summary = `${this.name} ${this.graduationList[this.graduationIndex]}畢業 / 社團經驗 : ${this.club_experience} / ${this.work_experience} 工作經驗${this.statusList[this.selectedIndex]}`;
     },
     calculate(){
         this.showResult = true;
-        },
+    },
+    // displayresult(){
+    //     this.all_result=``
+    // }
     clearResult(){
         this.showResult = false;
     },        
