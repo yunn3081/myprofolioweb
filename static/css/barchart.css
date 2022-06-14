@@ -9,7 +9,7 @@ h1{
 }
 
 svg{
-    border: 1px solid #DAB88B;
+    border: 1px solid #FDF6EC;
 }
 .axis .domain{
     stroke:none;
@@ -28,5 +28,55 @@ svg{
 .tooltip{
     position: fixed;
     opacity: 0;
-    pointer-events: none; /*避免出現連結或其他預設行為*/
-    }
+    pointer-events: none;
+    /*避免出現連結或其他預設行為*/
+    background: #eee;
+    max-width: 200px;
+}
+.tip-header{
+    border-bottom: 2px solid white;
+    padding: 0.9rem 1rem;
+}
+.tip-body{
+    padding: 0.2rem 0;
+}
+ 
+h3,h4{
+    font-size: 0.9rem;
+    color:#555;
+    margin: 0;
+}
+h4{
+    font-weight: normal;
+}
+.tip-info{
+    margin: 0;
+    padding: 0.3rem 1em;
+    font-size: 0.8em;
+}
+/*偶數元素設定不同背景樣式*/
+.tip-info:nth-of-type(even){
+    background: #e0e0e0;
+}
+
+.shape-ex1{
+    width: 120px;
+    height: 25px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    color: #3F4853;
+    background-color: transparent;
+    border: 1px solid #3F4853;
+    transition: all .3s linear;
+    display:table-cell;
+    vertical-align:middle;
+
+    /* position: absolute;
+    top: 45%;
+    left: 9%; */
+}
+.shape-ex1:hover{
+    background-color: #3F4853;
+    color: #F6EFDC;
+}

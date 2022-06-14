@@ -13,7 +13,7 @@ let pageData = {
     },
     pStyleController:{
         'margin-left':'50px',
-        color:'blue',
+        color:'#B7CADB',
         'font-size':'20px',
         'font-style':'italic'
     },

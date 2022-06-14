@@ -9,10 +9,18 @@
     <body>
         <div class="bar-chart-container"></div>
         <div class="controls">
-            <button data-name="revenue">Revenue</button>
-            <button data-name="budget">Budget</button>
-            <button data-name="popularity">Popularity</button>
+            <button data-name="revenue" class="shape-ex1">Revenue</button>
+            <button data-name="budget" class="shape-ex1">Budget</button>
+            <button data-name="popularity" class="shape-ex1">Popularity</button>
         </div>
+        <div class="tooltip">
+            <div class="tip-header">
+            <h3></h3>
+            <h4></h4>
+            </div>
+            <div class="tip-body"></div>
+        </div>
+
         <div class="scatter-plot-container"></div>
         <script src="//unpkg.com/d3"></script>
         <script src="/static/js/barchart.js"></script>

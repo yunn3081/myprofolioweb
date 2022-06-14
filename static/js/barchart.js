@@ -99,9 +99,9 @@ function chooseData(metric, movieClean){
     return thisData;
 }
 
-function setupCanvas(barChartData, movieClean){
+function setupCanvas(barChartData, moviesClean){
     //一開始預設指標是revenue
-    let metric = 'revenue';
+    let metric = 'budget';
     function click(){
         metric = this.dataset.name;
         const thisData = chooseData(metric, moviesClean);
@@ -136,7 +136,7 @@ function setupCanvas(barChartData, movieClean){
                 .transition(transitionDelay)
                 .delay((d,i)=>i*20)
                 .attr('width',d=>xScale_v3(d[metric]))
-                .style('fill','dodgerblue')
+                .style('fill','#B7CADB')
             },
             update => {
                 update.transition(transitionDelay)
@@ -150,6 +150,11 @@ function setupCanvas(barChartData, movieClean){
                     .remove()
             }
         );
+        //interactive 新增監聽
+        d3.selectAll('.bar')
+        .on('mouseover',mouseover)
+        .on('mousemove',mousemove)
+        .on('mouseout',mouseout);
     }
     const svg_width = 700;
     const svg_height = 500;
@@ -208,26 +213,55 @@ function setupCanvas(barChartData, movieClean){
         .html("Hello")
     }
     function mouseover(e){
+        //get data
+        const thisBarData = d3.select(this).data()[0];
+        const bodyData = [
+            ['Budget', thisBarData.budget],
+            ['Revenue', thisBarData.revenue],
+            ['Profit', thisBarData.revenue - thisBarData.budget],
+            ['TMDB Popularity', Math.round(thisBarData.popularity)],
+            ['IMDB Rating', thisBarData.vote_average],
+            ['Genres', thisBarData.genres.join(', ')]
+        ];
+
         tip.style('left',(e.clientX+15)+'px')
         .style('top',e.clientY+'px')
-        .style('opacity',0.98)
-        .html("Hello")
+        .transition()
+        .style('opacity',0.98);
+
+        tip.select('h3').html(`${thisBarData.title}, ${thisBarData.release_year}`);
+        tip.select('h4').html(`${thisBarData.tagline}, ${thisBarData.runtime} min.`);
+
+        d3.select('.tip-body').selectAll('p').data(bodyData)
+        .join('p').attr('class', 'tip-info')
+        .html(d=>`${d[0]} : ${d[1]}`);
     }
     function mousemove(e){
         tip.style('left',(e.clientX+15)+'px')
-        .style('top',e.clientY+'px')
-        .style('opacity',0.98)
-        .html("Hello")
+        .style('top',e.clientY+'px');
     }
     function mouseout(e){
-        tip.style('opacity',0)
+        tip.transition()
+            .style('opacity',0)
     }
     //interactive 新增監聽
     d3.selectAll('.bar')
         .on('mouseover',mouseover)
         .on('mousemove',mousemove)
         .on('mouseout',mouseout);
-    
+
+    function formatTicks(d){
+        return d3.format('.2s')(d)
+        .replace('M',' mil').replace('G',' bil').replace('T',' tri')
+    }
+    const bodyData = [
+        ['Budget', formatTicks(thisBarData.budget)],
+        ['Revenue', formatTicks(thisBarData.revenue)],
+        ['Profit', formatTicks(thisBarData.revenue - thisBarData.budget)],
+        ['TMDB Popularity', Math.round(thisBarData.popularity)],
+        ['IMDB Rating', thisBarData.vote_average],
+        ['Genres', thisBarData.genres.join(', ')]
+    ];
 }
 
 
@@ -327,7 +361,7 @@ function setupCanvasScatter(scatterData){
     .attr('cx',d=>xScale(d.budget))
     .attr('cy',d=>yScale(d.revenue))
     .attr('r',3)
-    .style('fill', 'dodgerblue')
+    .style('fill', '#B7CADB')
     .style('fill-opacity',0.5); 
 
     //Draw header

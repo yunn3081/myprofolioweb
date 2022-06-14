@@ -15,10 +15,13 @@
                     <td width="20%">{{productClass.name}}</td>
                     <td width="20%">US${{productClass.price.toLocaleString('en-US')}}</td>
                     <td>
-                        <button style="width: 35%" v-if="productClass.earlyBird">Book Earlybird!</button>
-                        <button style="width: 35%" v-else>Book</button>&nbsp;
+                        <button style="width: 35%" class="shape-ex1" v-if="productClass.earlyBird">Book Earlybird!</button>
+                        <button style="width: 35%" class="shape-ex1" v-else>Book</button>&nbsp;
                         <span v-show="productClass.seatsAvailable < 10" style="color:red">
                         Almost Sold out!
+                        </span>
+                        <span v-show="productClass.seatsAvailable >= 10" style="color:#FDF6EC">
+                            Almost Sold out!
                         </span>
                     </td>
                 </tr>
