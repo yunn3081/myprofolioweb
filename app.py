@@ -96,7 +96,7 @@ def submit():
             prediction = f'拒絕(N) - 系統信心 {result_proba[0][0]:.10f}'
             color = "red"
 
-        return render_template('Loan.html', Credit_History_Yes = Credit_History_Yes, Credit_History_No = Credit_History_No, 
+        return render_template('loan.html', Credit_History_Yes = Credit_History_Yes, Credit_History_No = Credit_History_No, 
                                 Gender_Male = Gender_Male, Gender_Female = Gender_Female, Married_Yes = Married_Yes, Married_No = Married_No, 
                                 Education_Graduate = Education_Graduate, Education_NotGraduate = Education_NotGraduate, Dependents_0 = Dependents_0,
                                 Dependents_1 = Dependents_1,Dependents_2 = Dependents_2,Dependents_3Plus = Dependents_3Plus,
